@@ -3,6 +3,7 @@ import { HTTP, mainError } from "./error/mainError";
 import cors from "cors";
 import user from "./router/userRouter";
 import post from "./router/postRouter";
+import comment from "./router/commentRouter";
 
 export const mainApp = (app: Application) => {
   app.use(express.json());
@@ -16,6 +17,7 @@ export const mainApp = (app: Application) => {
   
   app.use("/api/v1",user);
   app.use("/api/v1",post);
+  app.use("/api/v1",comment);
 
     app.get("/", (res: Response, req: Request) => {
       res.status(HTTP.OK).json({
